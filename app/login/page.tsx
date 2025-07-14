@@ -13,7 +13,7 @@ export default function LoginPage() {
     const res = await fetch('http://localhost:8080/auth/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      credentials: 'include', // <- penting untuk cookie JWT
+      credentials: 'include',
       body: JSON.stringify({ username, password })
     })
 
@@ -26,8 +26,8 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <form onSubmit={handleLogin} className="bg-white p-6 rounded-xl shadow-xl w-full max-w-sm space-y-4">
+    <div className="min-h-screen flex items-center justify-center bg-black">
+      <form onSubmit={handleLogin} className="bg-white p-8 rounded-xl shadow-xl w-full max-w-sm space-y-8">
         <h1 className="text-2xl font-bold text-center">Login Panel</h1>
         <input
           type="text"
