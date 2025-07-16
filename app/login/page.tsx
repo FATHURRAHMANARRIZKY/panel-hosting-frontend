@@ -32,7 +32,7 @@ export default function LoginPage() {
         <input
           type="text"
           placeholder="Username"
-          className="w-full border px-4 py-2 rounded"
+          className="w-full border px-4 py-2 rounded focus:outline-none"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           required
@@ -40,7 +40,7 @@ export default function LoginPage() {
         <input
           type="password"
           placeholder="Password"
-          className="w-full border px-4 py-2 rounded"
+          className="w-full border px-4 py-2 rounded focus:outline-none"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required

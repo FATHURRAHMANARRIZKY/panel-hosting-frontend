@@ -1,21 +1,47 @@
-"use client";
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
-import UploadForm from "./components/UploadForm";
-import DeployLogs from "./components/DeployLogs";
+"use client"
+
+import { useState } from "react"
+import UploadForm from "./components/UploadForm"
+import DeployLogs from "./components/DeployLogs"
+import Link from "next/link"
 
 export default function DashboardPage() {
-  const router = useRouter();
-
-  useEffect(() => {
-    // Di sini nanti bisa tambah cek JWT atau auth
-  }, []);
+  const [activePage, setActivePage] = useState<"upload" | "logs">("upload")
 
   return (
-    <div className="p-6 space-y-6">
-      <h1 className="text-2xl font-bold">Dashboard</h1>
-      <UploadForm />
-      <DeployLogs />
+    <div className="flex h-screen">
+      {/* Sidebar */}
+      <div className="w-52 bg-gray-800 text-white p-4 space-y-4">
+        <h1 className="text-xl font-bold mb-6">Dashboard</h1>
+        <ul className="space-y-2 text-sm">
+          <li>
+            <button
+              onClick={() => setActivePage("upload")}
+              className={`block w-full text-left px-2 py-1 rounded ${
+                activePage === "upload" ? "bg-gray-700 font-semibold" : ""
+              }`}
+            >
+              Upload & Deploy
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={() => setActivePage("logs")}
+              className={`block w-full text-left px-2 py-1 rounded ${
+                activePage === "logs" ? "bg-gray-700 font-semibold" : ""
+              }`}
+            >
+              Riwayat Deploy
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      {/* Konten */}
+      <div className="flex-1 p-6 overflow-y-auto bg-gray-50">
+        {activePage === "upload" && <UploadForm />}
+        {activePage === "logs" && <DeployLogs />}
+      </div>
     </div>
-  );
+  )
 }
