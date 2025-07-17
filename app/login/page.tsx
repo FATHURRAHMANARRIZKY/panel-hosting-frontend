@@ -19,7 +19,7 @@ export default function LoginPage() {
 
     if (res.ok) {
       toast.success('Login sukses')
-      router.push('/dashboard')
+      router.push('/')
     } else {
       toast.error('Login gagal')
     }
