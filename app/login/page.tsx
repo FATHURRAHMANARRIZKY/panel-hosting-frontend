@@ -26,9 +26,10 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-black p-6">
-      <form onSubmit={handleLogin} className="bg-white p-8 text-black rounded-xl shadow-xl w-full max-w-sm space-y-8">
+    <div className="min-h-screen flex items-center justify-center bg-gray-500 p-6">
+      <form onSubmit={handleLogin} className="bg-white p-8 text-black rounded-xl shadow-2xl w-full max-w-sm space-y-8">
         <h1 className="text-2xl font-bold text-center">Login Panel</h1>
+        <label>Username</label>
         <input
           type="text"
           placeholder="Username"
@@ -37,6 +38,7 @@ export default function LoginPage() {
           onChange={(e) => setUsername(e.target.value)}
           required
         />
+        <label>Password</label>
         <input
           type="password"
           placeholder="Password"
