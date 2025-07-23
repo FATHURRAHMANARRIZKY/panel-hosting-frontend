@@ -11,7 +11,7 @@ export default function UploadForm() {
     e.preventDefault()
 
     if (!file) {
-      toast.error('Pilih file .zip terlebih dahulu')
+      toast.error('Select the .zip file first')
       return
     }
 
@@ -49,7 +49,7 @@ export default function UploadForm() {
         disabled={loading}
         className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
       >
-        {loading ? 'Mengunggah...' : 'Upload & Deploy'}
+        {loading ? 'Uploading...' : 'Upload & Deploy'}
       </button>
     </form>
   )
